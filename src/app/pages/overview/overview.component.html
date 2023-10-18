@@ -1,0 +1,17 @@
+<section class="overview">
+  <app-sidebar [isActive]="isSidebarActive"></app-sidebar>
+  <main class="overview__content">
+    <section>
+      <h1 class="overview__content__heading">
+        <button (click)="showSidebar()">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <span>overview</span>
+      </h1>
+    </section>
+    <section>
+      <app-summary />
+      <app-chart />
+    </section>
+  </main>
+</section>

@@ -1,0 +1,146 @@
+@use "../../partials" as *;
+.transactions {
+  @include flex(row, center, center);
+  overflow: hidden;
+  &__content {
+    padding: 25px 5%;
+    &__heading {
+      color: $white;
+      text-transform: capitalize;
+      font-size: 28px;
+      width: 100%;
+      button {
+        margin-right: 10px;
+        background-color: $secondary;
+        padding: 10px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        i {
+          color: $white;
+          font-size: 18px;
+        }
+      }
+    }
+    section {
+      form {
+        @include flex(column, center, center);
+        gap: 30px;
+        margin-top: 40px;
+        .option {
+          display: inline-flex;
+          flex-direction: row;
+          align-items: center;
+          background-color: $secondary;
+          width: clamp(200px, 80vw, 400px);
+          border-radius: 10px;
+          padding-inline: 7px;
+          height: 50px;
+          button {
+            color: $gray;
+            font-family: $workSans;
+            text-transform: capitalize;
+            font-size: 16px;
+            cursor: pointer;
+            height: 40px;
+            width: 50%;
+            border-radius: 10px;
+            &.active {
+              background-color: $accent;
+              color: $primary;
+            }
+          }
+        }
+        .drop-down {
+          width: clamp(200px, 80vw, 400px);
+          border: none;
+          background-color: $secondary;
+          color: $white;
+          font-family: $workSans;
+          border-radius: 10px;
+          height: 50px;
+          padding-left: 20px;
+          text-transform: capitalize;
+        }
+      }
+      .recents {
+        @include flex(column, center, center);
+        margin-top: 40px;
+        h2 {
+          color: $white;
+          text-transform: capitalize;
+        }
+        div {
+          @include flex(row, center, flex-start);
+          article {
+            @include flex(row, space-between, center);
+            background-color: $secondary;
+            margin-top: 10px;
+            padding-inline: 20px;
+            width: clamp(200px, 80vw, 500px);
+            border-radius: 10px;
+            p {
+              text-transform: capitalize;
+              color: $white;
+              width: 100%;
+              padding-block: 15px;
+              width: 50px;
+              overflow: scroll;
+              white-space: nowrap;
+              -ms-overflow-style: none; /* IE and Edge */
+              scrollbar-width: none; /* Firefox */
+            }
+            .date {
+              display: none;
+            }
+            button {
+              cursor: pointer;
+              span {
+                font-size: 18px;
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .transactions {
+    @include flex(row, flex-start, flex-start);
+    &__content {
+      width: 100%;
+      &__heading {
+        button {
+          display: none;
+        }
+      }
+      section {
+        @include flex(row, space-between, flex-start);
+        width: 100%;
+        .recents {
+          width: 100%;
+          h2 {
+          }
+          div {
+            @include flex(row, center, flex-start);
+            gap: 20px;
+            article {
+              @include flex(row, space-between, center);
+              background-color: $secondary;
+              gap: 10px;
+              p {
+                color: $white;
+                width: 100%;
+              }
+              .date {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

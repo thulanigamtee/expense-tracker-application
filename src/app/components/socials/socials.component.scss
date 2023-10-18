@@ -1,0 +1,26 @@
+@use "../../partials" as *;
+
+.icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  &__icon {
+    width: 80px;
+    height: 80px;
+    border: none;
+    background: $secondary no-repeat center;
+    background-size: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    i {
+      font-size: 40px;
+      color: $white;
+    }
+    &:hover {
+      i {
+        transform: scale(1.1);
+        transition: 0.3s ease-in-out;
+      }
+    }
+  }
+}

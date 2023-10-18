@@ -1,0 +1,43 @@
+@use "../../partials" as *;
+
+.signup {
+  @include flex(column, center, center);
+  margin-block: 40px;
+  &__heading {
+    font-family: $workSans;
+    font-weight: 700;
+    font-size: 28px;
+    color: $white;
+  }
+  a {
+    color: $gray;
+    font-family: $workSans;
+    font-size: 14px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      color: $accent;
+    }
+  }
+  &__form {
+    @include flex(column, center, "");
+    gap: 30px;
+    margin-top: 40px;
+  }
+  span {
+    color: $gray;
+    font-family: $workSans;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 900px) {
+  .signup {
+    &__heading {
+      font-size: 38px;
+    }
+  }
+}

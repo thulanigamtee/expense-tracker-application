@@ -1,0 +1,11 @@
+@use "../../partials/" as *;
+
+.chart {
+  margin-top: 20px;
+  width: clamp(200px, 80vw, 400px);
+  p {
+    color: $gray;
+    font-size: $workSans;
+    margin-bottom: 10px;
+  }
+}

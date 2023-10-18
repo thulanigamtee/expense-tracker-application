@@ -1,0 +1,39 @@
+@use "../../partials" as *;
+.overview {
+  @include flex(row, center, center);
+  overflow: hidden;
+  &__content {
+    padding: 25px 5%;
+    &__heading {
+      color: $white;
+      text-transform: capitalize;
+      font-size: 28px;
+      width: 100%;
+      button {
+        margin-right: 10px;
+        background-color: $secondary;
+        padding: 10px 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        i {
+          color: $white;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .overview {
+    @include flex(row, flex-start, flex-start);
+    &__content {
+      width: 100%;
+      &__heading {
+        button {
+          display: none;
+        }
+      }
+    }
+  }
+}

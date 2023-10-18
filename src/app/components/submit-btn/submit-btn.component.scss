@@ -1,0 +1,22 @@
+@use "../../partials" as *;
+
+button {
+  border: none;
+  color: $primary;
+  background-color: $accent;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-top: 40px;
+  cursor: pointer;
+  width: clamp(200px, 80vw, 400px);
+  transition: 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+  }
+  &:focus {
+    transform: scale(0.99);
+  }
+}

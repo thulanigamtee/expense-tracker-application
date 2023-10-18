@@ -1,0 +1,59 @@
+@use "../../partials" as *;
+
+.form__field {
+  input {
+    width: clamp(200px, 80vw, 400px);
+    border: none;
+    background-color: $secondary;
+    border-radius: 10px;
+    height: 50px;
+    padding-left: 20px;
+    outline: none;
+    font-family: $workSans;
+    color: $white;
+    &::placeholder {
+      text-transform: capitalize;
+    }
+    &:focus {
+      box-shadow: 0 0 0 2px $accent;
+    }
+    &.invalid {
+      box-shadow: 0 0 0 2px red;
+    }
+  }
+  // input::-webkit-outer-spin-button,
+  // input::-webkit-inner-spin-button {
+  //   -webkit-appearance: none;
+  //   margin: 0;
+  // }
+  // input[number] {
+  //   -moz-appearance: textfield;
+  // }
+  button {
+    transform: translate(-40px, 15px);
+    position: absolute;
+    font-size: 16px;
+    cursor: pointer;
+    i {
+      color: $white;
+    }
+    .strikeThrough {
+      background-color: $white;
+      position: absolute;
+      width: 3px;
+      height: 0px;
+      transform: rotate(-45deg) translate(-7px, -7px);
+      border-radius: 50px;
+      &.isActive {
+        height: 20px;
+      }
+    }
+  }
+  &__error {
+    color: red;
+    margin-top: 5px;
+    font-family: $workSans;
+    font-size: 14px;
+    position: absolute;
+  }
+}

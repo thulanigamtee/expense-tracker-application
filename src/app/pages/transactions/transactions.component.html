@@ -1,0 +1,94 @@
+<section class="transactions">
+  <app-sidebar [isActive]="isSidebarActive"></app-sidebar>
+  <main class="transactions__content">
+    <section>
+      <h1 class="transactions__content__heading">
+        <button (click)="showSidebar()">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <span>transactions</span>
+      </h1>
+    </section>
+    <section>
+      <form [formGroup]="transactionsForm" (ngSubmit)="addTransaction()">
+        <div class="option">
+          <button
+            type="button"
+            class="option__income"
+            [class.active]="!isExpense"
+            (click)="toggleIncomeExpense(false)"
+          >
+            income
+          </button>
+          <button
+            type="button"
+            class="option__expense"
+            [class.active]="isExpense"
+            (click)="toggleIncomeExpense(true)"
+          >
+            expense
+          </button>
+        </div>
+        <app-input-field
+          inputType="text"
+          [control]="transactionsForm.controls.title"
+          placeholder="Title"
+        />
+        <app-input-field
+          inputType="text"
+          [control]="transactionsForm.controls.amount"
+          placeholder="amount"
+        />
+        <app-input-field
+          inputType="date"
+          [control]="transactionsForm.controls.date"
+        />
+        <select class="drop-down" *ngIf="isExpense" formControlName="category">
+          <option value="">select category</option>
+          <option>bills</option>
+          <option>education</option>
+          <option>groceries</option>
+          <option>medical</option>
+          <option>miscellaneous</option>
+        </select>
+        <select class="drop-down" *ngIf="!isExpense" formControlName="category">
+          <option value="">select category</option>
+          <option>salary</option>
+          <option>allowance</option>
+          <option>commision</option>
+          <option>active income</option>
+        </select>
+        <app-submit-btn btnText="add transaction"></app-submit-btn>
+      </form>
+      <div class="recents" *ngIf="user">
+        <h2>recent transactions</h2>
+        <div *ngFor="let trans of transactions">
+          <article>
+            <span
+              style="color: green"
+              *ngIf="!trans.isExpense"
+              class="material-symbols-outlined"
+            >
+              trending_up
+            </span>
+            <span
+              style="color: red"
+              *ngIf="trans.isExpense"
+              class="material-symbols-outlined"
+            >
+              trending_down
+            </span>
+            <p class="title">{{ trans.title }}</p>
+            <p class="amount">R {{ trans.amount }}</p>
+            <p class="category">{{ trans.category }}</p>
+            <p class="date">{{ trans.date }}</p>
+            <button (click)="deleteTransaction(trans.id)">
+              <span class="material-symbols-outlined"> delete </span>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section></section>
+  </main>
+</section>

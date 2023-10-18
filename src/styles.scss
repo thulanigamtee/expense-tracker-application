@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./app/partials/" as *;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $workSans;
+  background-color: $primary;
+  max-width: 1440px;
+  margin: auto;
+}
+
+ul {
+  li {
+    list-style: none;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+button {
+  background: none;
+  border: none;
+}
